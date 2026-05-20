@@ -74,7 +74,7 @@ export const Navbar = () => {
             onMouseEnter={playHoverSound}
             className="px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-background transition-all duration-300 text-sm uppercase tracking-widest"
           >
-            Reserve a Table
+            Commander en ligne
           </button>
         </div>
       </div>
