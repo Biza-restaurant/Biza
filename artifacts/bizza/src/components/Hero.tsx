@@ -40,7 +40,7 @@ export const Hero = () => {
           loop
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover scale-105"
-          src="/bizza-hero.mp4"
+          src="https://res.cloudinary.com/dlazeylfu/video/upload/q_auto,f_auto/0520_tq0zfn.mp4"
         />
         <div className="absolute inset-0 bg-background/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />

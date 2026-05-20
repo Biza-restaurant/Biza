@@ -35,7 +35,7 @@ export const LoadingScreen = ({ isLoading }: Props) => {
             loop
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
-            src="/bizza-hero.mp4"
+            src="https://res.cloudinary.com/dlazeylfu/video/upload/q_auto,f_auto/0520_tq0zfn.mp4"
           />
           <div className="absolute inset-0 bg-background/50" />
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-6">
