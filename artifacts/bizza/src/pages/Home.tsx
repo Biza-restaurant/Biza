@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Lenis from "@studio-freight/lenis";
+import { motion, AnimatePresence } from "framer-motion";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
@@ -17,15 +18,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
+    const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
 
     function raf(time: number) {
       lenis.raf(time);
@@ -34,9 +27,7 @@ export default function Home() {
 
     requestAnimationFrame(raf);
 
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2500);
+    const timer = setTimeout(() => setIsLoading(false), 2500);
 
     return () => {
       lenis.destroy();
@@ -49,20 +40,26 @@ export default function Home() {
       <CustomCursor />
       <ScrollProgress />
       <LoadingScreen isLoading={isLoading} />
-      
-      {!isLoading && (
-        <main className="opacity-0 animate-in fade-in duration-1000">
-          <Navbar />
-          <Hero />
-          <Menu />
-          <Experience />
-          <ChefStory />
-          <Testimonials />
-          <Gallery />
-          <Reservation />
-          <Footer />
-        </main>
-      )}
+
+      <AnimatePresence>
+        {!isLoading && (
+          <motion.main
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          >
+            <Navbar />
+            <Hero />
+            <Menu />
+            <Experience />
+            <ChefStory />
+            <Testimonials />
+            <Gallery />
+            <Reservation />
+            <Footer />
+          </motion.main>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
