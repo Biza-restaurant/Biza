@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react";
 
 const VIDEOS = [
   "https://res.cloudinary.com/dlazeylfu/video/upload/q_auto,f_auto/0520_tq0zfn.mp4",
-  "https://res.cloudinary.com/dlazeylfu/video/upload/0520_1_kbrg3m.mp4",
+  "https://res.cloudinary.com/dlazeylfu/video/upload/q_auto,f_auto/0520_1_kbrg3m.mp4",
 ];
 
 const SWITCH_INTERVAL = 8000;
