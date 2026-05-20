@@ -1,0 +1,62 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "pDkWfIuLF3qWkZH_0Nc_D"
+uri = "file://artifacts/bizza/src/assets/hero-bg.png"
+type = "image"
+title = "hero background pizza fire"
+
+[[generated]]
+id = "slga5YWhj83ux3GtjY3Nf"
+uri = "file://artifacts/bizza/src/assets/menu-1.png"
+type = "image"
+title = "truffle black pizza"
+
+[[generated]]
+id = "W9qJxgaHs3tJ6vET3WPsd"
+uri = "file://artifacts/bizza/src/assets/menu-2.png"
+type = "image"
+title = "four-cheese pizza"
+
+[[generated]]
+id = "4w6xm3SNXdOD_CvR4cx7m"
+uri = "file://artifacts/bizza/src/assets/menu-3.png"
+type = "image"
+title = "seafood caviar pizza"
+
+[[generated]]
+id = "EHZTOUveGNRRXNsaB1x1E"
+uri = "file://artifacts/bizza/src/assets/menu-4.png"
+type = "image"
+title = "lava dessert gold"
+
+[[generated]]
+id = "GzaoRCr2A7hn_d8q_3WR6"
+uri = "file://artifacts/bizza/src/assets/menu-5.png"
+type = "image"
+title = "vintage red wine"
+
+[[generated]]
+id = "Lyv3wSeyC77t1PM2hiDpk"
+uri = "file://artifacts/bizza/src/assets/experience-bg.png"
+type = "image"
+title = "restaurant interior candlelit"
+
+[[generated]]
+id = "UySR3jORtK6cn2tCwFKAy"
+uri = "file://artifacts/bizza/src/assets/chef.png"
+type = "image"
+title = "chef portrait"
+
+[[generated]]
+id = "tirdbD-TLGZ57TI8mDrjZ"
+uri = "file://artifacts/bizza/src/assets/gallery-1.png"
+type = "image"
+title = "gallery pizza 1"
+
+[[generated]]
+id = "p4xGaHy6gg2SQCYLB6gXD"
+uri = "file://artifacts/bizza/src/assets/gallery-2.png"
+type = "image"
+title = "gallery atmosphere 1"

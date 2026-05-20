@@ -1,0 +1,173 @@
+صمّم موقع ويب أسطوري وفاخر جدًا لمطعم بيتزا راقٍ باسم “BIZZA HISTOIRE D'OR”.
+الهوية البصرية يجب أن تبدو وكأنها مزيج بين:
+الفخامة الفرنسية القديمة + الأناقة الإيطالية + لمسة عصرية cinematic ultra luxury.
+
+━━━━━━━━━━━━━━━━━━
+🎨 الهوية والتصميم
+━━━━━━━━━━━━━━━━━━
+
+الألوان الأساسية:
+Beige royal #E8DCC8
+Dark navy blue #0D1B2A
+Gold subtle accents #C6A769
+Ivory white
+الأسلوب:
+Old Money Luxury
+Minimal but cinematic
+Elegant typography
+Rich shadows + glass reflections
+Smooth luxury animations
+الإحساس:
+المستخدم يجب أن يشعر وكأنه دخل مطعم فاخر في باريس سنة 2035.
+
+━━━━━━━━━━━━━━━━━━
+🖥️ الصفحة الرئيسية HERO SECTION
+━━━━━━━━━━━━━━━━━━
+
+أنشئ Hero Section خارقة بصريًا تحتوي على:
+
+فيديو خلفية سينمائي لبيتزا فاخرة تخرج من الفرن مع نار هادئة وبطء cinematic slow motion
+Overlay داكن شفاف أزرق ملكي
+عنوان ضخم جدًا بخط فاخر:
+
+“BIZZA HISTOIRE D'OR”
+
+Subtitle:
+“Where Luxury Meets Fire & Flavor”
+أزرار زجاجية فخمة:
+Explore Menu
+Reserve a Table
+تأثير Parallax عند تحريك الماوس
+تأثير ظهور نصوص smooth reveal
+particles ذهبية خفيفة جدًا تتحرك بالخلفية
+scroll indicator فاخر متحرك
+
+━━━━━━━━━━━━━━━━━━
+🍕 قسم قائمة الطعام
+━━━━━━━━━━━━━━━━━━
+
+اصنع Menu Section بشكل غير عادي:
+
+Cards فاخرة جدًا مع:
+صور كبيرة
+Hover cinematic zoom
+انعكاس ضوء ذهبي
+السعر يظهر بطريقة luxury badge
+أيقونات صغيرة elegant
+التصنيفات:
+Signature Pizza
+Golden Truffle Pizza
+Royal Cheese Collection
+Luxury Desserts
+Vintage Drinks
+
+عند Hover:
+
+البطاقة ترتفع قليلاً
+الخلفية تتحول لتدرج navy + gold
+الصورة تتحرك بشكل subtle motion
+
+━━━━━━━━━━━━━━━━━━
+✨ قسم التجربة الفاخرة
+━━━━━━━━━━━━━━━━━━
+
+أنشئ Section يشبه مواقع الفنادق العالمية:
+
+صور كبيرة full-width
+نصوص ضخمة cinematic typography
+Counters متحركة:
++50 Luxury Recipes
++10 Master Chefs
++100K Happy Clients
+
+مع تأثير:
+
+fade in on scroll
+smooth luxury transitions
+blur reveal animations
+
+━━━━━━━━━━━━━━━━━━
+📱 تصميم الموبايل
+━━━━━━━━━━━━━━━━━━
+
+اجعل نسخة الهاتف:
+
+فخمة جدًا
+responsive perfectly
+animations ناعمة
+menu mobile premium
+bottom floating navigation
+glassmorphism effects
+
+━━━━━━━━━━━━━━━━━━
+⚡ التأثيرات المطلوبة
+━━━━━━━━━━━━━━━━━━
+
+أضف:
+
+Framer Motion animations
+GSAP cinematic transitions
+Smooth scrolling
+Mouse glow effect
+Luxury cursor effect
+Loading screen مذهل يحمل شعار المطعم
+Scroll progress bar ذهبي
+Dynamic blur layers
+Animated gradients
+
+━━━━━━━━━━━━━━━━━━
+🧠 الذكاء البصري
+━━━━━━━━━━━━━━━━━━
+
+الموقع يجب أن يبدو:
+
+أغلى من مواقع المطاعم العادية بـ100 مرة
+مثل مواقع العلامات العالمية luxury brands
+clean جدًا بدون فوضى
+premium ultra realistic
+sophisticated and immersive
+
+━━━━━━━━━━━━━━━━━━
+💻 التقنيات المطلوبة
+━━━━━━━━━━━━━━━━━━
+
+React + Vite
+TailwindCSS
+Framer Motion
+GSAP
+Lenis Smooth Scroll
+Responsive Design
+Modern Component Architecture
+Lazy Loading
+Optimized Performance
+
+━━━━━━━━━━━━━━━━━━
+🎬 تفاصيل إضافية خارقة
+━━━━━━━━━━━━━━━━━━
+
+أضف:
+
+صوت خفيف عند hover للأزرار
+تأثير إضاءة يتبع الماوس
+قسم Chef Story بشكل cinematic
+Testimonials فاخرة مثل المجلات العالمية
+Instagram luxury gallery
+Footer فاخر جدًا مع golden line animations
+
+━━━━━━━━━━━━━━━━━━
+🚫 ممنوع
+━━━━━━━━━━━━━━━━━━
+
+أي تصميم تقليدي
+ألوان قوية مزعجة
+Cards عادية
+Fonts رخيصة
+Layout مكرر
+Animations بسيطة
+
+━━━━━━━━━━━━━━━━━━
+🎯 النتيجة النهائية المطلوبة
+━━━━━━━━━━━━━━━━━━
+
+أريد موقع عندما يراه الشخص يقول:
+“هذا ليس موقع مطعم… هذا تحفة فنية رقمية.”
