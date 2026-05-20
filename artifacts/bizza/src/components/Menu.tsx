@@ -1,77 +1,17 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { playHoverSound } from "@/lib/audio";
-
-const categories = [
-  {
-    id: "entrees",
-    title: "Entrées du Monde",
-    subtitle: "المقبلات",
-    items: [
-      { name: "Crème de Potiron", price: "400 DA" },
-      { name: "Bisque de Crevette", price: "500 DA" },
-      { name: "Bourek Crevette (2 Pièces)", price: "550 DA" },
-      { name: "Vitello Tonné", price: "1 150 DA" },
-      { name: "Ceviché Daurade / Avocat", price: "1 800 DA" },
-      { name: "Tartare Avocat au Saumon", price: "1 900 DA" },
-    ],
-  },
-  {
-    id: "soupes",
-    title: "Soupes",
-    subtitle: "الشوربات",
-    items: [
-      { name: "Soupe de Poisson", price: "600 DA" },
-    ],
-  },
-  {
-    id: "poissons",
-    title: "Escale Poisson",
-    subtitle: "محطة الأسماك",
-    items: [
-      { name: "Daurade en Portefeuille", price: "1 600 DA" },
-      { name: "Paget à la Plancha", price: "1 600 DA" },
-      { name: "Spaghetti aux Crevettes", price: "1 600 DA" },
-      { name: "Sepia en Sauce", price: "1 800 DA" },
-      { name: "Saumon à la Plancha", price: "2 200 DA" },
-      { name: "Espadon à la Palermitaine", price: "2 400 DA" },
-      { name: "Espadon à la Braise", price: "2 400 DA" },
-      { name: "Saumon Sauce Dieppoise", price: "2 400 DA" },
-      { name: "Crevette à la Provençale", price: "2 400 DA" },
-      { name: "Crevette à la Braise", price: "2 400 DA" },
-      { name: "Crevette Sautée à l'Ail", price: "2 400 DA" },
-    ],
-  },
-  {
-    id: "plats",
-    title: "Les Plats Principaux",
-    subtitle: "الأطباق الرئيسية",
-    items: [
-      { name: "Aadja Mergaz", price: "1 100 DA" },
-      { name: "Côte d'Agneau Merguez", price: "1 100 DA" },
-      { name: "Tavuk Sis", price: "1 200 DA" },
-      { name: "Köfte Tavuk Sis", price: "1 200 DA" },
-      { name: "Wok de Bœuf", price: "1 400 DA" },
-      { name: "Poulet au Citron Confit", price: "1 400 DA" },
-      { name: "Poulet Tikka Massala", price: "1 600 DA" },
-      { name: "Dina Sis Kebab", price: "1 600 DA" },
-      { name: "Kuzu Sis Kebab", price: "1 600 DA" },
-      { name: "Fettuccine au Saumon", price: "1 600 DA" },
-      { name: "Lapin à l'Espagnole", price: "1 800 DA" },
-      { name: "Tadjine Zuzu", price: "2 000 DA" },
-      { name: "Tadjine Poisson", price: "2 400 DA" },
-      { name: "Bœuf Stroganov", price: "2 400 DA" },
-      { name: "Blanquette de Bœuf", price: "2 400 DA" },
-      { name: "Méchoui Maison", price: "2 500 DA" },
-      { name: "Juge d'Agneau Farcie", price: "2 800 DA" },
-    ],
-  },
-];
+import { categories, menuItems, formatPrice } from "@/lib/menuData";
+import { useCart } from "@/context/CartContext";
 
 export const Menu = () => {
   const [active, setActive] = useState("entrees");
+  const { addItem, items } = useCart();
 
-  const current = categories.find((c) => c.id === active)!;
+  const visibleItems = menuItems.filter((i) => i.categoryId === active);
+  const currentCat = categories.find((c) => c.id === active)!;
+
+  const getQty = (id: string) => items.find((i) => i.id === id)?.quantity ?? 0;
 
   return (
     <section id="menu" className="py-32 px-6 lg:px-12 bg-background relative">
@@ -118,30 +58,50 @@ export const Menu = () => {
           key={active}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
         >
           <div className="text-center mb-10">
-            <h3 className="font-serif text-2xl md:text-3xl text-foreground">{current.title}</h3>
-            <p className="text-primary/60 text-sm mt-1 tracking-widest">{current.subtitle}</p>
+            <h3 className="font-serif text-2xl md:text-3xl text-foreground">{currentCat.title}</h3>
+            <p className="text-primary/60 text-sm mt-1 tracking-widest">{currentCat.subtitle}</p>
           </div>
 
           <div className="divide-y divide-primary/10">
-            {current.items.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: idx * 0.04 }}
-                className="flex items-center justify-between py-5 group"
-              >
-                <span className="text-foreground/80 group-hover:text-foreground transition-colors text-sm md:text-base font-light tracking-wide">
-                  {item.name}
-                </span>
-                <span className="text-primary font-serif text-sm md:text-base ml-6 shrink-0">
-                  {item.price}
-                </span>
-              </motion.div>
-            ))}
+            {visibleItems.map((item, idx) => {
+              const qty = getQty(item.id);
+              return (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.35, delay: idx * 0.04 }}
+                  className="flex items-center justify-between py-5 group"
+                >
+                  <div className="flex-1 min-w-0 mr-4">
+                    <span className="text-foreground/80 group-hover:text-foreground transition-colors text-sm md:text-base font-light tracking-wide">
+                      {item.name}
+                    </span>
+                    {qty > 0 && (
+                      <span className="ml-3 text-[10px] uppercase tracking-widest text-primary/70 bg-primary/10 px-2 py-0.5 rounded-sm">
+                        ×{qty} ajouté
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-4 shrink-0">
+                    <span className="text-primary font-serif text-sm md:text-base">
+                      {formatPrice(item.price)}
+                    </span>
+                    <motion.button
+                      whileTap={{ scale: 0.85 }}
+                      onClick={() => { addItem(item); playHoverSound(); }}
+                      className="w-8 h-8 border border-primary/40 hover:bg-primary hover:border-primary text-primary hover:text-background text-lg flex items-center justify-center transition-all duration-200"
+                    >
+                      +
+                    </motion.button>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </div>

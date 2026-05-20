@@ -13,6 +13,9 @@ import { Testimonials } from "@/components/Testimonials";
 import { Gallery } from "@/components/Gallery";
 import { Reservation } from "@/components/Reservation";
 import { Footer } from "@/components/Footer";
+import { CartSidebar } from "@/components/CartSidebar";
+import { Checkout } from "@/components/Checkout";
+import { FloatingCart } from "@/components/FloatingCart";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -60,6 +63,10 @@ export default function Home() {
           </motion.main>
         )}
       </AnimatePresence>
+
+      <CartSidebar />
+      <Checkout />
+      <FloatingCart />
     </div>
   );
 }
