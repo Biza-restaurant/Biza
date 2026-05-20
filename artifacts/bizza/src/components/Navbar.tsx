@@ -33,8 +33,8 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
         <div className="flex items-center gap-4 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <img src={logoPath} alt="BIZZA" className="w-12 h-12 rounded-full object-cover border border-primary/30" />
-          <span className="font-serif text-xl font-bold tracking-widest text-primary hidden sm:block">BIZZA</span>
+          <img src={logoPath} alt="BIZZA" className="w-16 h-16 rounded-full object-cover border border-primary/30" />
+          <span className="font-serif text-xl font-bold tracking-widest text-primary">BIZZA</span>
         </div>
 
         <div className="hidden md:flex items-center gap-8">
