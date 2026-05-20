@@ -1,5 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import fallbackImg from "@/assets/exterior.png";
 
 interface Props {
   isLoading: boolean;
@@ -7,15 +8,28 @@ interface Props {
 
 export const LoadingScreen = ({ isLoading }: Props) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoFailed, setVideoFailed] = useState(false);
 
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
-    const play = () => v.play().catch(() => {});
-    play();
-    v.addEventListener("loadeddata", play);
-    return () => v.removeEventListener("loadeddata", play);
+
+    const tryPlay = () => {
+      v.play().catch(() => setVideoFailed(true));
+    };
+
+    const onError = () => setVideoFailed(true);
+    const onCanPlay = () => tryPlay();
+
+    v.addEventListener("canplay", onCanPlay);
+    v.addEventListener("error", onError);
+    tryPlay();
+
+    return () => {
+      v.removeEventListener("canplay", onCanPlay);
+      v.removeEventListener("error", onError);
+    };
   }, []);
 
   return (
@@ -27,16 +41,31 @@ export const LoadingScreen = ({ isLoading }: Props) => {
           transition={{ duration: 1.2, ease: "easeInOut" }}
           className="fixed inset-0 z-[10000] overflow-hidden bg-[#050810]"
         >
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            playsInline
-            loop
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-            src="https://res.cloudinary.com/dlazeylfu/video/upload/q_auto,f_auto/0520_tq0zfn.mp4"
-          />
+          {videoFailed ? (
+            <img
+              src={fallbackImg}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : (
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              playsInline
+              loop
+              preload="auto"
+              poster={fallbackImg}
+              className="absolute inset-0 w-full h-full object-cover"
+              onError={() => setVideoFailed(true)}
+            >
+              <source
+                src="https://res.cloudinary.com/dlazeylfu/video/upload/q_auto,f_auto/0520_tq0zfn.mp4"
+                type="video/mp4"
+              />
+            </video>
+          )}
+
           <div className="absolute inset-0 bg-background/50" />
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-6">
             <motion.p
