@@ -8,7 +8,7 @@ export const Navbar = () => {
   const { scrollY } = useScroll();
 
   useEffect(() => {
-    return scrollY.onChange((latest) => {
+    return scrollY.on("change", (latest) => {
       setIsScrolled(latest > 50);
     });
   }, [scrollY]);
