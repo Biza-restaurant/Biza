@@ -1,8 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const videoBg = import.meta.env.BASE_URL + "bizza-hero.mp4";
-
 interface Props {
   isLoading: boolean;
 }
@@ -14,7 +12,10 @@ export const LoadingScreen = ({ isLoading }: Props) => {
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
-    v.play().catch(() => {});
+    const play = () => v.play().catch(() => {});
+    play();
+    v.addEventListener("loadeddata", play);
+    return () => v.removeEventListener("loadeddata", play);
   }, []);
 
   return (
@@ -24,7 +25,7 @@ export const LoadingScreen = ({ isLoading }: Props) => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="fixed inset-0 z-[10000] overflow-hidden bg-background"
+          className="fixed inset-0 z-[10000] overflow-hidden bg-[#050810]"
         >
           <video
             ref={videoRef}
@@ -34,14 +35,27 @@ export const LoadingScreen = ({ isLoading }: Props) => {
             loop
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
-            src={videoBg}
+            src="/bizza-hero.mp4"
           />
-          <div className="absolute inset-0 bg-background/40" />
+          <div className="absolute inset-0 bg-background/50" />
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-6">
-            <p className="font-serif text-4xl md:text-6xl text-foreground tracking-widest">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="font-serif text-4xl md:text-6xl text-foreground tracking-[0.2em]"
+            >
               BIZZA
-            </p>
-            <div className="flex gap-1.5">
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="text-primary text-xs uppercase tracking-[0.4em]"
+            >
+              Histoire D'Or
+            </motion.p>
+            <div className="flex gap-1.5 mt-4">
               {[0, 1, 2].map((i) => (
                 <motion.span
                   key={i}

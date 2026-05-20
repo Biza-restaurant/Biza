@@ -2,18 +2,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { playHoverSound } from "@/lib/audio";
 import { useRef, useEffect } from "react";
 
-const videoBg = import.meta.env.BASE_URL + "bizza-hero.mp4";
-
 export const Hero = () => {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = true;
-    v.play().catch(() => {});
-  }, []);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -22,6 +13,16 @@ export const Hero = () => {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    const play = () => v.play().catch(() => {});
+    play();
+    v.addEventListener("loadeddata", play);
+    return () => v.removeEventListener("loadeddata", play);
+  }, []);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -39,7 +40,7 @@ export const Hero = () => {
           loop
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover scale-105"
-          src={videoBg}
+          src="/bizza-hero.mp4"
         />
         <div className="absolute inset-0 bg-background/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
@@ -86,7 +87,6 @@ export const Hero = () => {
           <button
             onClick={() => scrollTo("menu")}
             onMouseEnter={playHoverSound}
-            data-testid="button-explore-menu"
             className="px-10 py-4 bg-primary/10 backdrop-blur-md border border-primary/50 text-foreground hover:bg-primary hover:text-background transition-all duration-500 uppercase tracking-widest text-xs w-full sm:w-auto"
           >
             Explore Menu
@@ -94,7 +94,6 @@ export const Hero = () => {
           <button
             onClick={() => scrollTo("reserve")}
             onMouseEnter={playHoverSound}
-            data-testid="button-reserve-table"
             className="px-10 py-4 bg-transparent border border-foreground/30 text-foreground hover:border-primary hover:text-primary transition-all duration-500 uppercase tracking-widest text-xs w-full sm:w-auto"
           >
             Reserve a Table
@@ -102,7 +101,6 @@ export const Hero = () => {
           <button
             onClick={() => scrollTo("menu")}
             onMouseEnter={playHoverSound}
-            data-testid="button-order-online"
             className="px-10 py-4 bg-transparent border border-foreground/30 text-foreground hover:border-primary hover:text-primary transition-all duration-500 uppercase tracking-widest text-xs w-full sm:w-auto"
           >
             Commandé en Ligne
