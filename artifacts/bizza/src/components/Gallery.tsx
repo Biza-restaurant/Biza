@@ -22,9 +22,9 @@ export const Gallery = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="relative aspect-square group overflow-hidden cursor-pointer"
+            className="relative aspect-[4/5] group overflow-hidden cursor-pointer bg-zinc-900"
           >
-            <img src={img} alt={`Gallery ${i}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img src={img} alt={`Gallery ${i}`} className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
               <SiInstagram className="text-primary text-3xl" />
             </div>
