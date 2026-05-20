@@ -115,13 +115,6 @@ export const Hero = () => {
           >
             Reserve a Table
           </button>
-          <button
-            onClick={() => scrollTo("menu")}
-            onMouseEnter={playHoverSound}
-            className="px-10 py-4 bg-transparent border border-foreground/30 text-foreground hover:border-primary hover:text-primary transition-all duration-500 uppercase tracking-widest text-xs w-full sm:w-auto"
-          >
-            Commandé en Ligne
-          </button>
         </motion.div>
       </motion.div>
 
