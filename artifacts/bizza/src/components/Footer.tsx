@@ -42,10 +42,10 @@ export const Footer = () => {
         <p className="text-primary/70 text-xs tracking-widest uppercase mb-6">Biza Restaurant | Biskra</p>
 
         <p className="text-muted-foreground font-light text-sm mb-2">
-          🍽️ Cuisine raffinée &amp; saveurs uniques
+          Cuisine raffinée &amp; saveurs uniques
         </p>
         <p className="text-muted-foreground font-light text-sm mb-6">
-          🍸 Cocktails · Mocktails · Plats signature
+          Cocktails · Mocktails · Plats signature
         </p>
 
         <a
