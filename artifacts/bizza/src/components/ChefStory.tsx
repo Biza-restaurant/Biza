@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import chefImg from "@/assets/chef.png";
-import extImg from "@assets/image_1779292466381.png";
+import extImg from "@/assets/exterior.png";
 
 export const ChefStory = () => {
   return (
