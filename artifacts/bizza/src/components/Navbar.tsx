@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 import { playHoverSound } from "@/lib/audio";
+import { useCart } from "@/context/CartContext";
 import logoPath from "@assets/598665214_17850248598606361_7817036976118675783_n_1779292460729.jpg";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const { totalItems, openCart } = useCart();
 
   useEffect(() => {
     return scrollY.on("change", (latest) => {
@@ -48,13 +50,33 @@ export const Navbar = () => {
           ))}
         </div>
 
-        <button
-          onClick={() => scrollTo("reserve")}
-          onMouseEnter={playHoverSound}
-          className="px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-background transition-all duration-300 text-sm uppercase tracking-widest"
-        >
-          Reserve a Table
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={openCart}
+            onMouseEnter={playHoverSound}
+            className="relative p-2 text-foreground hover:text-primary transition-colors duration-300"
+            aria-label="Open cart"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="9" cy="21" r="1"/>
+              <circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            {totalItems > 0 && (
+              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-primary text-background text-[9px] font-bold flex items-center justify-center">
+                {totalItems}
+              </span>
+            )}
+          </button>
+
+          <button
+            onClick={() => scrollTo("reserve")}
+            onMouseEnter={playHoverSound}
+            className="px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-background transition-all duration-300 text-sm uppercase tracking-widest"
+          >
+            Reserve a Table
+          </button>
+        </div>
       </div>
     </motion.nav>
   );
