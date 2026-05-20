@@ -1,27 +1,43 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { playHoverSound } from "@/lib/audio";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+
+const VIDEOS = [
+  "https://res.cloudinary.com/dlazeylfu/video/upload/q_auto,f_auto/0520_tq0zfn.mp4",
+  "https://res.cloudinary.com/dlazeylfu/video/upload/q_auto,f_auto/0520_1_kbrg3m.mp4",
+];
+
+const SWITCH_INTERVAL = 8000;
 
 export const Hero = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [active, setActive] = useState(0);
+  const videoRefs = [useRef<HTMLVideoElement>(null), useRef<HTMLVideoElement>(null)];
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = true;
-    const play = () => v.play().catch(() => {});
-    play();
-    v.addEventListener("loadeddata", play);
-    return () => v.removeEventListener("loadeddata", play);
+    videoRefs.forEach((r) => {
+      const v = r.current;
+      if (!v) return;
+      v.muted = true;
+      v.play().catch(() => {});
+      v.addEventListener("loadeddata", () => { v.muted = true; v.play().catch(() => {}); });
+    });
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActive((prev) => {
+        const next = prev === 0 ? 1 : 0;
+        const v = videoRefs[next].current;
+        if (v) { v.currentTime = 0; v.muted = true; v.play().catch(() => {}); }
+        return next;
+      });
+    }, SWITCH_INTERVAL);
+    return () => clearInterval(id);
   }, []);
 
   const scrollTo = (id: string) => {
@@ -32,25 +48,26 @@ export const Hero = () => {
   return (
     <section ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden">
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          playsInline
-          loop
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover scale-105"
-          src="https://res.cloudinary.com/dlazeylfu/video/upload/q_auto,f_auto/0520_tq0zfn.mp4"
-        />
+        {VIDEOS.map((src, i) => (
+          <video
+            key={src}
+            ref={videoRefs[i]}
+            autoPlay
+            muted
+            playsInline
+            loop
+            preload="auto"
+            src={src}
+            className="absolute inset-0 w-full h-full object-cover scale-105 transition-opacity duration-[2000ms]"
+            style={{ opacity: active === i ? 1 : 0 }}
+          />
+        ))}
         <div className="absolute inset-0 bg-background/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-transparent" />
       </motion.div>
 
-      <motion.div
-        className="relative z-10 text-center px-6 mt-20"
-        style={{ opacity }}
-      >
+      <motion.div className="relative z-10 text-center px-6 mt-20" style={{ opacity }}>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
