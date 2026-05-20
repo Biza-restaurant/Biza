@@ -83,7 +83,7 @@ export const Hero = () => {
           transition={{ duration: 1.4, delay: 0.6 }}
           className="font-serif text-5xl md:text-7xl lg:text-[7rem] xl:text-[9rem] leading-none font-bold mb-10 text-foreground drop-shadow-2xl"
         >
-          BIZZA HISTOIRE
+          BIZA HISTOIRE
           <br />
           <span className="text-primary italic font-light">D'OR</span>
         </motion.h1>

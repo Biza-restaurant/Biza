@@ -74,7 +74,7 @@ export const LoadingScreen = ({ isLoading }: Props) => {
               transition={{ duration: 1 }}
               className="font-serif text-4xl md:text-6xl text-foreground tracking-[0.2em]"
             >
-              BIZZA
+              BIZA
             </motion.p>
             <motion.p
               initial={{ opacity: 0 }}

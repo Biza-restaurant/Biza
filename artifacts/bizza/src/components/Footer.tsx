@@ -4,9 +4,9 @@ export const Footer = () => {
   return (
     <footer className="bg-background pt-20 pb-10 border-t border-primary/20 relative">
       <div className="container mx-auto px-6 text-center">
-        <img src={logoPath} alt="BIZZA Logo" className="w-20 h-20 mx-auto rounded-full border border-primary/30 mb-8" />
+        <img src={logoPath} alt="BIZA Logo" className="w-20 h-20 mx-auto rounded-full border border-primary/30 mb-8" />
         
-        <h2 className="font-serif text-3xl text-foreground mb-4">BIZZA HISTOIRE D'OR</h2>
+        <h2 className="font-serif text-3xl text-foreground mb-4">BIZA HISTOIRE D'OR</h2>
         <p className="text-muted-foreground font-light mb-8 max-w-sm mx-auto">
           12 Rue de la Paix<br/>
           75002 Paris, France
@@ -21,7 +21,7 @@ export const Footer = () => {
         </div>
 
         <div className="text-xs text-muted-foreground tracking-widest">
-          © {new Date().getFullYear()} BIZZA HISTOIRE D'OR. ALL RIGHTS RESERVED.
+          © {new Date().getFullYear()} BIZA HISTOIRE D'OR. ALL RIGHTS RESERVED.
         </div>
       </div>
     </footer>
