@@ -73,6 +73,32 @@ export const Footer = () => {
           </a>
         </div>
 
+        <div className="mb-10 max-w-xs mx-auto">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span className="text-primary text-xs uppercase tracking-widest">Horaires d'ouverture</span>
+          </div>
+          <div className="space-y-1.5 text-sm text-muted-foreground">
+            {[
+              { day: "Mercredi", hours: "07:00 – 01:00" },
+              { day: "Jeudi", hours: "07:00 – 01:00" },
+              { day: "Vendredi", hours: "15:00 – 01:00" },
+              { day: "Samedi", hours: "15:00 – 01:00" },
+              { day: "Dimanche", hours: "07:00 – 01:00" },
+              { day: "Lundi", hours: "07:00 – 01:00" },
+              { day: "Mardi", hours: "07:00 – 01:00" },
+            ].map(({ day, hours }) => (
+              <div key={day} className="flex justify-between gap-6">
+                <span className="font-light">{day}</span>
+                <span className="text-foreground/70">{hours}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground/50 mt-3 italic">Les horaires peuvent être différents</p>
+        </div>
+
         <div className="flex items-center justify-center gap-6 mb-12">
           {socials.map((s) => (
             <a
