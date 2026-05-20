@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import logoPath from "@assets/598665214_17850248598606361_7817036976118675783_n_1779292460729.jpg";
-import videoBg from "@assets/AQNFOlvZwYc9SThlkc8ZNoIeMoyCTFU-VNjOwJRp3zJwgh-P60dZz9qxzLoZ_E_1779293062704.mp4";
+const videoBg = "/bizza-hero.mp4";
 
 interface Props {
   isLoading: boolean;

@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "@studio-freight/lenis";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { LoadingScreen } from "@/components/LoadingScreen";
 import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Navbar } from "@/components/Navbar";
@@ -14,6 +15,8 @@ import { Reservation } from "@/components/Reservation";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
 
@@ -24,28 +27,39 @@ export default function Home() {
 
     requestAnimationFrame(raf);
 
-    return () => lenis.destroy();
+    const timer = setTimeout(() => setIsLoading(false), 4000);
+
+    return () => {
+      lenis.destroy();
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
     <div className="bg-background text-foreground min-h-screen selection:bg-primary selection:text-background">
       <CustomCursor />
       <ScrollProgress />
-      <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <Navbar />
-        <Hero />
-        <Menu />
-        <Experience />
-        <ChefStory />
-        <Testimonials />
-        <Gallery />
-        <Reservation />
-        <Footer />
-      </motion.main>
+      <LoadingScreen isLoading={isLoading} />
+
+      <AnimatePresence>
+        {!isLoading && (
+          <motion.main
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <Navbar />
+            <Hero />
+            <Menu />
+            <Experience />
+            <ChefStory />
+            <Testimonials />
+            <Gallery />
+            <Reservation />
+            <Footer />
+          </motion.main>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

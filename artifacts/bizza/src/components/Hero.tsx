@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { playHoverSound } from "@/lib/audio";
-import videoBg from "@assets/AQNFOlvZwYc9SThlkc8ZNoIeMoyCTFU-VNjOwJRp3zJwgh-P60dZz9qxzLoZ_E_1779293062704.mp4";
+const videoBg = "/bizza-hero.mp4";
 import { useRef } from "react";
 
 export const Hero = () => {
