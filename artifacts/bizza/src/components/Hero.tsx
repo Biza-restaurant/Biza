@@ -1,10 +1,20 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { playHoverSound } from "@/lib/audio";
-const videoBg = "/bizza-hero.mp4";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+
+const videoBg = import.meta.env.BASE_URL + "bizza-hero.mp4";
 
 export const Hero = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.play().catch(() => {});
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -22,10 +32,12 @@ export const Hero = () => {
     <section ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden">
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
         <video
+          ref={videoRef}
           autoPlay
           muted
           playsInline
           loop
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover scale-105"
           src={videoBg}
         />
