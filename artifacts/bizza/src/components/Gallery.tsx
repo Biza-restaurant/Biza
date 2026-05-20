@@ -1,18 +1,20 @@
 import { motion } from "framer-motion";
-import gal1 from "@/assets/gallery-1.webp";
-import gal2 from "@/assets/gallery-2.webp";
-import menu1 from "@/assets/menu-1.webp";
-import menu2 from "@/assets/menu-2.webp";
-import menu3 from "@/assets/menu-3.webp";
-import menu5 from "@/assets/menu-5.webp";
+import food1 from "@/assets/food-1.jpg";
+import food2 from "@/assets/food-2.jpg";
+import food3 from "@/assets/food-3.jpg";
+import food4 from "@/assets/food-4.jpg";
+import food5 from "@/assets/food-5.jpg";
+import food6 from "@/assets/food-6.jpg";
+import food7 from "@/assets/food-7.jpg";
+import food8 from "@/assets/food-8.jpg";
 import { SiInstagram } from "react-icons/si";
 
-const images = [gal1, menu1, gal2, menu2, menu3, menu5];
+const images = [food1, food2, food3, food4, food5, food6, food7, food8];
 
 export const Gallery = () => {
   return (
     <section className="py-2 bg-background">
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-1 lg:gap-2">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-1 lg:gap-2">
         {images.map((img, i) => (
           <motion.div
             key={i}
