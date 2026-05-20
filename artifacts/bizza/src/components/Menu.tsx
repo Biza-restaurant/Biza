@@ -5,7 +5,7 @@ import { categories, menuItems, formatPrice } from "@/lib/menuData";
 import { useCart } from "@/context/CartContext";
 
 export const Menu = () => {
-  const [active, setActive] = useState("entrees");
+  const [active, setActive] = useState("plats");
   const { addItem, items } = useCart();
 
   const visibleItems = menuItems.filter((i) => i.categoryId === active);

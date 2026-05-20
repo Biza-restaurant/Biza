@@ -7,10 +7,10 @@ export interface MenuItem {
 }
 
 export const categories = [
+  { id: "plats", title: "Les Plats Principaux", subtitle: "الأطباق الرئيسية" },
   { id: "entrees", title: "Entrées du Monde", subtitle: "المقبلات" },
   { id: "soupes", title: "Soupes", subtitle: "الشوربات" },
   { id: "poissons", title: "Escale Poisson", subtitle: "محطة الأسماك" },
-  { id: "plats", title: "Les Plats Principaux", subtitle: "الأطباق الرئيسية" },
 ];
 
 export const menuItems: MenuItem[] = [
