@@ -104,7 +104,7 @@ export const Hero = () => {
           <button
             onClick={() => scrollTo("menu")}
             onMouseEnter={playHoverSound}
-            className="px-10 py-4 bg-primary/10 backdrop-blur-md border border-primary/50 text-foreground hover:bg-primary hover:text-background transition-all duration-500 uppercase tracking-widest text-xs w-full sm:w-auto"
+            className="px-10 py-4 bg-primary border border-primary text-background hover:bg-primary/80 transition-all duration-500 uppercase tracking-widest text-xs w-full sm:w-auto"
           >
             Explore Menu
           </button>
