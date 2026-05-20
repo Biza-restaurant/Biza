@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { playHoverSound } from "@/lib/audio";
-import menu1 from "@/assets/menu-1.png";
-import menu2 from "@/assets/menu-2.png";
-import menu3 from "@/assets/menu-3.png";
-import menu4 from "@/assets/menu-4.png";
-import menu5 from "@/assets/menu-5.png";
+import menu1 from "@/assets/menu-1.webp";
+import menu2 from "@/assets/menu-2.webp";
+import menu3 from "@/assets/menu-3.webp";
+import menu4 from "@/assets/menu-4.webp";
+import menu5 from "@/assets/menu-5.webp";
 
 const items = [
   {

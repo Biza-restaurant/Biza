@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import gal1 from "@/assets/gallery-1.png";
-import gal2 from "@/assets/gallery-2.png";
-import menu1 from "@/assets/menu-1.png";
-import menu2 from "@/assets/menu-2.png";
-import menu3 from "@/assets/menu-3.png";
-import menu5 from "@/assets/menu-5.png";
+import gal1 from "@/assets/gallery-1.webp";
+import gal2 from "@/assets/gallery-2.webp";
+import menu1 from "@/assets/menu-1.webp";
+import menu2 from "@/assets/menu-2.webp";
+import menu3 from "@/assets/menu-3.webp";
+import menu5 from "@/assets/menu-5.webp";
 import { SiInstagram } from "react-icons/si";
 
 const images = [gal1, menu1, gal2, menu2, menu3, menu5];

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
-import expBg from "@/assets/experience-bg.png";
+import expBg from "@/assets/experience-bg.webp";
 
 const Counter = ({ value, suffix, title }: { value: number, suffix: string, title: string }) => {
   const ref = useRef<HTMLDivElement>(null);
