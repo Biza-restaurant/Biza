@@ -54,7 +54,7 @@ export const Navbar = () => {
           <button
             onClick={openCart}
             onMouseEnter={playHoverSound}
-            className="relative p-2 text-foreground hover:text-primary transition-colors duration-300"
+            className="relative p-2 text-primary hover:text-primary/70 transition-colors duration-300"
             aria-label="Open cart"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -69,13 +69,6 @@ export const Navbar = () => {
             )}
           </button>
 
-          <button
-            onClick={() => scrollTo("reserve")}
-            onMouseEnter={playHoverSound}
-            className="px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-background transition-all duration-300 text-sm uppercase tracking-widest"
-          >
-            Commander en ligne
-          </button>
         </div>
       </div>
     </motion.nav>
