@@ -50,12 +50,17 @@ const LuxuryCartButton = ({ totalItems, openCart }: { totalItems: number; openCa
         pointerEvents: "none",
       }} />
 
-      {/* Dining icon — cloche */}
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 14c0-4.97 4.03-9 9-9s9 4.03 9 9"/>
-        <line x1="2" y1="14" x2="22" y2="14"/>
-        <line x1="12" y1="5" x2="12" y2="3"/>
-        <line x1="2" y1="19" x2="22" y2="19"/>
+      {/* Dining icon — plate + fork + knife */}
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+        {/* Plate circle */}
+        <circle cx="12" cy="12" r="4"/>
+        {/* Fork on left */}
+        <line x1="5" y1="3" x2="5" y2="8"/>
+        <path d="M3 3v3a2 2 0 0 0 4 0V3"/>
+        <line x1="5" y1="8" x2="5" y2="21"/>
+        {/* Knife on right */}
+        <path d="M19 3v5c0 1.1-.9 2-2 2v11"/>
+        <path d="M17 3h2"/>
       </svg>
 
       {/* Count badge */}
