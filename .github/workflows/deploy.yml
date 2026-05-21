@@ -49,7 +49,7 @@ jobs:
       - name: Build BIZA website
         run: pnpm --filter @workspace/bizza run build
         env:
-          BASE_PATH: /
+          BASE_PATH: /Biza/
           PORT: 4173
 
       - name: Upload Pages artifact
