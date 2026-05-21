@@ -25,12 +25,12 @@ const LuxuryCartButton = ({ totalItems, openCart }: { totalItems: number; openCa
         width: 48,
         height: 48,
         borderRadius: "50%",
-        background: "radial-gradient(circle at 35% 35%, rgba(255,255,255,0.08) 0%, rgba(10,10,15,0.85) 70%)",
+        background: "radial-gradient(circle at 35% 30%, rgba(30,70,140,0.95) 0%, rgba(8,22,58,0.98) 70%)",
         boxShadow: pulse
-          ? "0 0 0 2px #c9a84c, 0 0 18px 6px rgba(201,168,76,0.55), inset 0 1px 1px rgba(255,255,255,0.12)"
+          ? "0 0 0 2px #c9a84c, 0 0 28px 10px rgba(201,168,76,0.75), 0 0 50px 15px rgba(201,168,76,0.3), inset 0 1px 2px rgba(255,255,255,0.18)"
           : totalItems > 0
-          ? "0 0 0 1.5px #c9a84c, 0 0 10px 3px rgba(201,168,76,0.3), inset 0 1px 1px rgba(255,255,255,0.08)"
-          : "0 0 0 1px rgba(201,168,76,0.45), inset 0 1px 1px rgba(255,255,255,0.06)",
+          ? "0 0 0 1.5px #c9a84c, 0 0 18px 6px rgba(201,168,76,0.55), 0 0 35px 10px rgba(201,168,76,0.2), inset 0 1px 1px rgba(255,255,255,0.12)"
+          : "0 0 0 1.5px rgba(201,168,76,0.6), 0 0 12px 3px rgba(201,168,76,0.25), inset 0 1px 1px rgba(255,255,255,0.08)",
         transition: "box-shadow 0.4s ease",
         cursor: "pointer",
         border: "none",
