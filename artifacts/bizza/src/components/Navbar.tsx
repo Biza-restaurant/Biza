@@ -3,6 +3,7 @@ import { motion, useScroll, AnimatePresence } from "framer-motion";
 import { playHoverSound } from "@/lib/audio";
 import { useCart } from "@/context/CartContext";
 import logoPath from "@assets/598665214_17850248598606361_7817036976118675783_n_1779292460729.jpg";
+import cartIconPath from "@/assets/cart-icon.png";
 
 const LuxuryCartButton = ({ totalItems, openCart }: { totalItems: number; openCart: () => void }) => {
   const [pulse, setPulse] = useState(false);
@@ -50,18 +51,13 @@ const LuxuryCartButton = ({ totalItems, openCart }: { totalItems: number; openCa
         pointerEvents: "none",
       }} />
 
-      {/* Dining icon — plate + fork + knife */}
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-        {/* Plate circle */}
-        <circle cx="12" cy="12" r="4"/>
-        {/* Fork on left */}
-        <line x1="5" y1="3" x2="5" y2="8"/>
-        <path d="M3 3v3a2 2 0 0 0 4 0V3"/>
-        <line x1="5" y1="8" x2="5" y2="21"/>
-        {/* Knife on right */}
-        <path d="M19 3v5c0 1.1-.9 2-2 2v11"/>
-        <path d="M17 3h2"/>
-      </svg>
+      <img
+        src={cartIconPath}
+        alt="order"
+        width={24}
+        height={24}
+        style={{ filter: "invert(75%) sepia(60%) saturate(400%) hue-rotate(5deg) brightness(105%)", objectFit: "contain" }}
+      />
 
       {/* Count badge */}
       <AnimatePresence>
